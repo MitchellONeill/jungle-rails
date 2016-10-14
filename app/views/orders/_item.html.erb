@@ -1,0 +1,9 @@
+<% product = Product.find_by(id: product_id) %>
+  <% item_total = product.price * quantity %>
+  <tr>
+    <td>
+      <%= image_tag(product.image, width: '250', height: '250') %>
+      <p><%= product.name %></p>
+      <p><%= quantity %></p>
+    </td>
+  </tr>
