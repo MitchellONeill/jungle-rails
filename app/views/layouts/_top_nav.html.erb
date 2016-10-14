@@ -45,6 +45,19 @@
           <% end %>
         </li>
       </ul>
+     <p class="navbar-text navbar-right">
+        <% if current_user %>
+          <% if current_user.first_name.nil? || current_user.first_name == '' %>
+            <%= current_user.email %>
+          <% else %>
+            <%= current_user.first_name %>
+          <% end %> |
+          <%= link_to 'Logout', '/logout' %>
+        <% else %>
+          <%= link_to 'Login', '/login/new' %> |
+          <%= link_to 'Sign Up', '/users/new' %>
+        <% end %>
+      </p>
     </div>
   </div>
 </nav>
