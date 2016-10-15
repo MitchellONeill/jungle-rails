@@ -32,6 +32,7 @@ puts "Re-creating Products ..."
 
 Product.destroy_all
 
+
 cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
@@ -129,5 +130,33 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+#Dummy reviews
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: "this is a test review from seeds",
+  rating: 2
+  })
+
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: "this is a test second review from seeds",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 2,
+  user_id: 2,
+  description: "this is a test review from seeds",
+  rating: 5
+  })
+
+Review.create!({
+  product_id: 3,
+  user_id: 2,
+  description: "this is a review from seeds",
+  rating: 1
+  })
 
 puts "DONE!"

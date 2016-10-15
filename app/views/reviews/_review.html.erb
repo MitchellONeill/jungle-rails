@@ -1,0 +1,12 @@
+    <% @reviews each do |r| %>
+  <tr>
+    <td>
+      <p> <%= review.user_id %> </p>
+    </td>
+    <td>
+      <p style="font-size: small";>
+      <%= review.description %>
+      </p>
+    </td>
+  </tr>
+  <% end %>

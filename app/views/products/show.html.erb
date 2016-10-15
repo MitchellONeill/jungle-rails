@@ -27,5 +27,23 @@
     </div>
 
   </article>
-
+  <table class="table table-bordered">
+   <thead>
+    <h4> Reviews </h4>
+    </thead>
+    <% @reviews.each do |r| %>
+    <tr>
+      <td>
+        <p> <%= @users.find_by(id: r.user_id).email %> </p>
+      </td>
+      <td>
+        <p style="font-size: small";>
+        <%= r.description %>
+        </p>
+      </td>
+      <td>
+        <%= r.rating %> / 5
+    </tr>
+    <% end %>
+  </table>
 </section>
