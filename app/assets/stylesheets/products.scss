@@ -76,6 +76,25 @@ main section.categories-show {
   }
 }
 
+form.review-form {
+  textarea {
+  float: left;
+  width: 40%
+  }
+
+  .rating {
+  margin-left: 1em;
+  margin-right: 1em;
+  float: left;
+  vertical-align: top
+  }
+
+  #review_rating {
+  float:left
+  }
+
+}
+
 main section.products-show {
 
   .product-detail {
