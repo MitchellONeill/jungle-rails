@@ -1,12 +1,12 @@
 class Product < ActiveRecord::Base
 
-  monetize :price_cents, numericality: true
+  monetize :price_cents, disable_validation: true
   mount_uploader :image, ProductImageUploader
 
   belongs_to :category
 
   validates :name, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: true
   validates :quantity, presence: true
   validates :category, presence: true
 
