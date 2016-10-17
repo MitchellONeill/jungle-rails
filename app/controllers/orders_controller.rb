@@ -7,11 +7,15 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
-
-
+    id = order.id
 
     if order.valid?
       empty_cart!
+      @line_items = LineItem.where(order_id: id)
+      @line_items.each do |line_item|
+        line_item.product.decrement(:quantity, line_item.quantity)
+        line_item.product.save
+      end
       redirect_to order, notice: 'Your Order has been placed.'
       Notifier.order_confirmation(order).deliver_now
     else

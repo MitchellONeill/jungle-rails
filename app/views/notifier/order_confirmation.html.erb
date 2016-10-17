@@ -10,7 +10,7 @@
          <% LineItem.where(order_id: @order.id).each do |item| %>
          <p> <%= Product.find_by(id: item.product_id).name %> </p>
         <% end %>
-      <p> total cost: <%= number_to_currency(@order.total_cents)/100 %></p>
+      <p> total cost: <%= number_to_currency(@order.total_cents/100) %></p>
     </p>
     <p>Thanks and and have a great day!</p>
   </body>
