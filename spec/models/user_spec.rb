@@ -4,6 +4,13 @@ RSpec.describe User, type: :model do
 
   describe 'Validations' do
 
+    marc = User.create(
+        first_name: 'Marcus'
+        last_name: 'Stroman',
+        email: "marcstro@bluejays.com",
+        password: 'password',
+        password_confirmation: 'password')
+
     it 'should have a first_name' do
       user = User.create(
         last_name: 'Stroman',
