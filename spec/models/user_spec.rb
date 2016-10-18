@@ -10,13 +10,13 @@ RSpec.describe User, type: :model do
         email: "marcstro@bluejays.com",
         password: 'password',
         password_confirmation: 'password')
-      expect(user.valid?).to be true
+      expect(user.valid?).to be false
+      expect(user.errors.full_messages).to include ("First name can't be blank")
     end
 
     it 'should have equivalent password and confirmations' do
       user = User.create(first_name: 'Marcus', last_name: 'Stroman', email: "marcstro@bluejays.com", password: 'password', password_confirmation: 'wrongone')
       expect(user.valid?).to be false
-      puts user.errors.full_messages
     end
 
     it 'should have a unique email' do
