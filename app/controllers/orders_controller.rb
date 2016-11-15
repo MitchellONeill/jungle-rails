@@ -17,7 +17,8 @@ class OrdersController < ApplicationController
         line_item.product.save
       end
       redirect_to order, notice: 'Your Order has been placed.'
-      Notifier.order_confirmation(order).deliver_now
+      # removed Gem 'mailcatcher' to deploy on Heroku (sqlite dependant gem)
+      # Notifier.order_confirmation(order).deliver_now
     else
       redirect_to cart_path, error: order.errors.full_messages.first
     end

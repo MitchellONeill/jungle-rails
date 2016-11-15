@@ -35,7 +35,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'stripe'
 gem 'faker'
-gem 'mailcatcher'
+# gem 'mailcatcher'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -61,4 +61,5 @@ end
 group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
+
 end

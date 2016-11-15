@@ -10,4 +10,4 @@ class Notifier < ApplicationMailer
       )
   end
 
-end
+ends
