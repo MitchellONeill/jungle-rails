@@ -21,47 +21,15 @@
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd>
+          <dd> $<%= @product.price %></dd>
         </dl>
       </div>
     </div>
   </article>
   <% if current_user != nil %>
-    <br>
-    <%= form_for [@product, @review], html: { class: "review-form" } do |f| %>
-      <span>
-        <%= f.text_area :description, placeholder: "product description" %>
-      </span>
-      <div class="rating">
-        Rating : <br>
-        <%= f.select :rating, options_for_select((0..5).to_a.push('-'), '-') %>
-      </div>
-      <br>
-      <div>
-        <%= f.submit "Submit" %>
-      </div>
-    <% end %>
+  <br>
+  <%= render partial: "products/create_review.html.erb" %>
   <%end %>
-
-  <br><br>
-  <table class="table table-bordered">
-    <thead>
-      <h4> Product Reviews </h4>
-    </thead>
-      <% @reviews.each do |r| %>
-    <tr>
-      <td>
-        <p> <%= @users.find_by(id: r.user_id).email %> </p>
-      </td>
-      <td>
-        <p style="font-size: small";>
-        <%= r.description %>
-        </p>
-      </td>
-      <td>
-        <%= r.rating %> / 5
-      </td>
-    </tr>
-    <% end %>
-  </table>
-</section>
+  <div>
+  <%= render partial: "reviews/review.html.erb" %>
+  </div>

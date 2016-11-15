@@ -76,10 +76,19 @@ main section.categories-show {
   }
 }
 
-form.review-form {
+#review-form {
+  #ratings {
+    display: none;
+  }
+
+  #review-description {
+    cols: 50;
+    rows: 5
+  }
+
   textarea {
   float: left;
-  width: 40%
+  width: 80%
   }
 
   .rating {
@@ -92,6 +101,18 @@ form.review-form {
   #review_rating {
   float:left
   }
+}
+
+div.panel-body {
+
+  .list-group {
+    margin-bottom: 5px;
+  }
+
+  #user-name {
+    font-style: italic
+  }
+
 
 }
 
@@ -103,5 +124,14 @@ main section.products-show {
     }
   }
 }
+
+ .btn-danger {
+  float: right;
+  margin-right: 2em;
+  }
+
+  .review-user {
+  width: 20%;
+  }
 
 

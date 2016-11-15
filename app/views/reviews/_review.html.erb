@@ -1,12 +1,46 @@
-    <% @reviews each do |r| %>
-  <tr>
-    <td>
-      <p> <%= review.user_id %> </p>
-    </td>
-    <td>
-      <p style="font-size: small";>
-      <%= review.description %>
-      </p>
-    </td>
-  </tr>
-  <% end %>
+<!-- http://bootsnipp.com/snippets/featured/recent-comments-admin-panel -->
+
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default widget">
+      <div class="panel-heading">
+        <span class="glyphicon glyphicon-comment"></span>
+          <h3 class="panel-title"> Recent Reviews</h3>
+      </div>
+      <div class="panel-body">
+      <% @reviews.each do |r| %>
+          <ul class="list-group">
+          <li class="list-group-item">
+            <table class="row">
+              <tr>
+                <td class="col-xs-2 col-md-1">
+                  <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" />
+                </td>
+                <td class="review-user">
+                  <div id="user-name"> <%= User.find_by(id: r.user_id).email %> </div>
+                  <div>Date: <%= r.created_at.to_s.slice(0,10) %> </div>
+                  <div>Rating:</div>
+                  <span> <% r.rating.to_i.times do %>
+                    <%= fa_icon('star', class: 'star') %>
+                  </span>
+                  <% end %>
+                </td>
+                <td>
+                  <div class="comment-text"> <%= r.description %> </div>
+                </td>
+                <td>
+                <div class = "action">
+                  <% if Review.find_by(user_id: @current_user.id, description: r.description) then %>
+                    <%= link_to "", product_review_path(r.product, r), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger btn-xs glyphicon glyphicon-trash" %>
+                  <% end %>
+                </div>
+                </td>
+            </tr>
+          </table>
+       </li>
+       </ul>
+       <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="row" style="margin-top:40px;">
+    <div class="col-md-6">
+      <div class="well well-sm">
+        <div class="row" id="post-review-box">
+          <div class="col-md-12">
+            <%= form_for [@product, @review], html: { id: "review-form" } do |f| %>
+              <%= f.text_area :description, placeholder: "enter review here..", id: 'review-description' %>
+              <%= f.text_area :rating, id: 'ratings' %>
+              <div class="text-right">
+              <div class="stars starrr"></div>
+              <%= f.submit "Submit", id: 'review-button', class: 'btn btn-default', disabled: true %>
+              </div>
+              <% end %>
+          </div>
+      </div>
+  </div>
+
