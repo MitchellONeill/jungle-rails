@@ -6,7 +6,6 @@
     <% end %>
     <p>
       <% if product.reviews.count > 0 %>
-      <% byebug %>
         <% @avgReview = product.reviews.sum(:rating) / product.reviews.count %>
         <% @avgReview.times do %>
           <%= fa_icon('star', class: 'star') %>
