@@ -8,6 +8,7 @@
           <h3 class="panel-title"> Recent Reviews</h3>
       </div>
       <div class="panel-body">
+      <% @reviews = Review.where(product_id: @product.id).reverse %>
       <% @reviews.each do |r| %>
           <ul class="list-group">
           <li class="list-group-item">
@@ -22,8 +23,8 @@
                   <div>Rating:</div>
                   <span> <% r.rating.to_i.times do %>
                     <%= fa_icon('star', class: 'star') %>
-                  </span>
                   <% end %>
+                  </span>
                 </td>
                 <td>
                   <div class="comment-text"> <%= r.description %> </div>

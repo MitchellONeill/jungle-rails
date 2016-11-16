@@ -1,12 +1,14 @@
 class ReviewsController < ApplicationController
 
   def create
-    @current_user = current_user
+    @reviewer = current_user
     @product = Product.find(params[:product_id])
     @user = User.find_by(email: @current_user.email)
+    params["review"]["rating"] = params["review"]["rating"].to_i
     @review = Review.new(review_params)
-    @reviews = Review.where(product_id: @product.id).reverse
-    @review.user_id = @current_user.id
+    @review.user_id = @reviewer.id
+    @review.product_id = @product.id
+
     if @review.save
       redirect_to product_path(@product)
     else
@@ -16,8 +18,12 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @review.destroy
-    redirect_to product_path(Product.find(params[:product_id]))
+    if @review.destroy
+      redirect_to product_path(Product.find(params[:product_id]))
+    else
+      render :'products/show'
+    end
+
   end
 
 

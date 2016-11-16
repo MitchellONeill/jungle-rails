@@ -8,10 +8,10 @@
       <% if product.reviews.count > 0 %>
         <% @avgReview = product.reviews.sum(:rating) / product.reviews.count %>
         <% @avgReview.times do %>
-          <%= fa_icon('star', class: 'star') %>
+          <%= fa_icon('star', class: 'stars') %>
         <% end %>
         <% (5 - @avgReview).times do %>
-          <%= fa_icon('star-o', class: 'star') %>
+          <%= fa_icon('star-o', class: 'stars') %>
         <% end %>
       <% else %>
         <em>No reviews for this product</em>
