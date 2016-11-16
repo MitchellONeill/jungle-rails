@@ -76,14 +76,20 @@ main section.categories-show {
   }
 }
 
+
 #review-form {
-  #ratings {
-    display: none;
+  #review_rating {
+    margin-left: 2em;
   }
 
   #review-description {
     cols: 50;
     rows: 5
+  }
+
+  #review-button {
+    margin-left: 2em;
+    float: left
   }
 
   textarea {
