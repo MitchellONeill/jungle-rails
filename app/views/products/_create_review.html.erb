@@ -6,7 +6,7 @@
           <div class="col-md-12">
             <%= form_for [@product, @review], html: { id: "review-form" } do |f| %>
               <%= f.text_area :description, placeholder: "enter review here..", id: 'review-description' %>
-              <%= f.select :rating, (0..5).to_a, id: 'ratings' %>
+              <%= f.select :rating, (1..5).to_a, id: 'ratings' %>
               <%= f.submit "Submit", id: 'review-button', class: 'btn btn-default', disabled: true %>
               <% end %>
             </div>
