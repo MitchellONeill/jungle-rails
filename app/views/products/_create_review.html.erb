@@ -6,9 +6,12 @@
           <div class="col-md-12">
             <%= form_for [@product, @review], html: { id: "review-form" } do |f| %>
               <%= f.text_area :description, placeholder: "enter review here..", id: 'review-description' %>
-              <%= f.select :rating, (1..5).to_a, id: 'ratings' %>
-              <%= f.submit "Submit", id: 'review-button', class: 'btn btn-default', disabled: true %>
-              <% end %>
+              <% rating_arr = (1..5).to_a.push('-') %>
+              <div>
+                <%= f.select :rating, rating_arr, :selected => rating_arr.last, id: 'ratings' %>
+                <%= f.submit "Submit", id: 'review-button', class: 'btn btn-default', disabled: true %>
+              </div>
+            <% end %>
             </div>
           </div>
         </div>
